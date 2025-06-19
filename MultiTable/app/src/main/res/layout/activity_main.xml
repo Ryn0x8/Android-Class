@@ -1,0 +1,83 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#EDEDED">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Registration"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RelativeLayout containing the TableLayouts -->
+    <RelativeLayout
+        android:id="@+id/relativeLayoutContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/submitBtn"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TableLayout
+            android:id="@+id/table1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView android:text="Name:" />
+                <EditText android:hint="Enter name" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Age:" />
+                <EditText android:hint="Enter age" android:inputType="number" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/table2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table1"
+            android:layout_marginTop="16dp"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView android:text="Email:" />
+                <EditText android:hint="Enter email" android:inputType="textEmailAddress" />
+            </TableRow>
+
+            <TableRow>
+                <TextView android:text="Phone:" />
+                <EditText android:hint="Enter phone" android:inputType="phone" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
