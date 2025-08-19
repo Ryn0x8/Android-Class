@@ -1,24 +1,47 @@
 package com.saral.navigationbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
+
+    ConstraintLayout rootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        rootLayout = findViewById(R.id.rootLayout);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true; // Show the menu in overflow (3-dot)
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_red) {
+            rootLayout.setBackgroundColor(Color.RED);
+            return true;
+        } else if (id == R.id.action_green) {
+            rootLayout.setBackgroundColor(Color.GREEN);
+            return true;
+        } else if (id == R.id.action_blue) {
+            rootLayout.setBackgroundColor(Color.BLUE);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
