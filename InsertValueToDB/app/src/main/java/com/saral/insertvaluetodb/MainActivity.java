@@ -13,8 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    EditText name, surname, marks;
-    Button save,load;
+    EditText name, surname, marks, id;
+    Button save,load, update, drop;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.editTextText);
         surname = findViewById(R.id.editTextText2);
         marks = findViewById(R.id.editTextText3);
+        id = findViewById(R.id.editTextText4);
         save = findViewById(R.id.button);
         load = findViewById(R.id.button2);
+        update = findViewById(R.id.button3);
+        drop = findViewById(R.id.button4);
 
         try (DatabaseHelper db = new DatabaseHelper(this)) {
             save.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +59,40 @@ public class MainActivity extends AppCompatActivity {
                         stringBuffer.append("Marks: "+ res.getString(3)+ "\n");
                     }
                     showMessage("Data", stringBuffer.toString());
+                }
+            });
+
+            update.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (!id.getText().toString().isEmpty() && !name.getText().toString().isEmpty() && !surname.getText().toString().isEmpty() && !marks.getText().toString().isEmpty()) {
+                                boolean isUpdated = db.updateData(id.getText().toString(), name.getText().toString(), surname.getText().toString(), marks.getText().toString());
+                                if (isUpdated) {
+                                    Toast.makeText(MainActivity.this, "Data Successfully Updated", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Data Failed to Update", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(MainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+            );
+
+            drop.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!id.getText().toString().isEmpty()){
+                        Integer deletedRows = db.deleteData(id.getText().toString());
+                        if (deletedRows>0){
+                            Toast.makeText(MainActivity.this, "Data Deleted", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(MainActivity.this, "Failed to Delete Data", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(MainActivity.this, "Please Fill out All the fields", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
