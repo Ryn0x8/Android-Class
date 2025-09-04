@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155196171360",
+    "project_id": "loginfb32424",
+    "storage_bucket": "loginfb32424.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155196171360:android:cee19d542fb1f488824f05",
+        "android_client_info": {
+          "package_name": "com.saral.firebaselogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgQDRTw2_3y8yAKK4qSJkOAiXSTAKP3zA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
