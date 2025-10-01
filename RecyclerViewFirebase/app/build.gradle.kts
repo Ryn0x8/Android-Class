@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.saral.firebaselogin"
+    namespace = "com.saral.recyclerviewfirebase"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.saral.firebaselogin"
+        applicationId = "com.saral.recyclerviewfirebase"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -38,8 +38,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
