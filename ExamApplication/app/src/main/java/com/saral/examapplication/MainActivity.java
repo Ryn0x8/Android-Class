@@ -5,6 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -13,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ExamAdapter adapter;
     ArrayList<Exam> examList;
+    FrameLayout adContainerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new ExamAdapter(examList);
         recyclerView.setAdapter(adapter);
+        MobileAds.initialize(this, initializationStatus -> {});
+        adContainerView = findViewById(R.id.ad_view_container);
+        AdView adView = new AdView(this);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        adView.setAdSize(AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, 360));
+
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
     }
 }
