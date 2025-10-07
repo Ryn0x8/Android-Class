@@ -1,9 +1,34 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.MusicApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MusicApp.Headline1</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MusicApp.Body1</item>
+
+        <item name="android:statusBarColor">@color/brand_primary_variant</item>
+        <item name="android:navigationBarColor">@color/brand_primary</item>
     </style>
 
     <style name="Theme.MusicApp" parent="Base.Theme.MusicApp" />
+
+    <style name="TextAppearance.MusicApp.Headline1" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/brand_primary</item>
+    </style>
+
+    <style name="TextAppearance.MusicApp.Body1" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
 </resources>
