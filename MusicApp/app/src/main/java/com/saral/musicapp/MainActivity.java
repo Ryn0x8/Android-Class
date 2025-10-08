@@ -146,4 +146,12 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.d("MUSIC_FILES", "Total unique songs found: " + songsList.size());
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (musicList != null){
+            musicList.setAdapter(new MusicListAdapter(songsList));
+        }
+    }
 }

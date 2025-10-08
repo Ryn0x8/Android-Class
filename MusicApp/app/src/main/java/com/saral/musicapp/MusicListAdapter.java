@@ -1,6 +1,7 @@
 package com.saral.musicapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,13 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.Musi
     public void onBindViewHolder(@NonNull MusicListAdapter.MusicViewHolder holder, int position) {
         AudioModal song = songs.get(position);
         holder.name.setText(song.getTitle());
+        if (MyMediaPlayer.currentIndex == holder.getBindingAdapterPosition()){
+            holder.name.setTextColor(Color.parseColor("#FF0000"));
+        }
+        else {
+            holder.name.setTextColor(Color.parseColor("#000000"));
+
+        }
         String durationStr = formatDuration(song.getDuration());
         holder.duration.setText(durationStr);
         holder.itemView.setOnClickListener(v -> {

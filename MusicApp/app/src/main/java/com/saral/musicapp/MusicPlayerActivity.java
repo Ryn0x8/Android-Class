@@ -6,8 +6,10 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -75,6 +77,18 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
             }
         });
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (mediaPlayer.isPlaying()){
+                    mediaPlayer.setOnCompletionListener(null);
+                    mediaPlayer.reset();
+                    mediaPlayer.stop();
+                }
+                finish();
+            }
+        });
+
     }
 
     private void setResourcesWithMusic(){
@@ -96,6 +110,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
             mediaPlayer.start();
             seekBar.setProgress(0);
             seekBar.setMax(mediaPlayer.getDuration());
+            mediaPlayer.setOnCompletionListener(mp -> {
+                playNextSong();
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,6 +120,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     private void playNextSong(){
         if (MyMediaPlayer.currentIndex == songsList.size()-1){
+            MyMediaPlayer.currentIndex = 0;
+            mediaPlayer.reset();
+            setResourcesWithMusic();
             return;
         }
         MyMediaPlayer.currentIndex+=1;
@@ -112,6 +132,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     private void playPreviousSong(){
         if (MyMediaPlayer.currentIndex == 0){
+            MyMediaPlayer.currentIndex=songsList.size()-1;
+            mediaPlayer.reset();
+            setResourcesWithMusic();
             return;
         }
         MyMediaPlayer.currentIndex-=1;
@@ -125,7 +148,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
         }
         else{
             mediaPlayer.start();
-
         }
     }
+
+
 }
