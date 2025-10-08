@@ -2,4 +2,8 @@
     <string name="app_name">MusicApp</string>
     <string name="no_songs_found">No Songs Found!</string>
     <string name="music_list">Music List</string>
+    <string name="music_title">Music Title</string>
+    <string name="current_time">00:00</string>
+    <string name="total_time">00:00</string>
+
 </resources>
