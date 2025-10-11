@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#008080"
+    tools:context=".PlayersActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/appimage"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/tictactoe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appimage"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:padding="20dp"
+        android:background="@drawable/card_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/heading"
+            android:layout_marginTop="30dp"
+            android:text="Enter the players name to continue"
+            android:textSize="19sp"
+            android:textStyle="italic"
+            android:textColor="#008080"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerOneLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_below="@id/heading"
+            android:layout_marginTop="50dp"
+            android:hint="Player One"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:boxStrokeColor="#008080"
+            app:hintTextColor="#008080"
+            app:startIconDrawable="@drawable/ic_player_one"
+            app:startIconTint="@android:color/holo_red_dark">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPlayerOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textCursorDrawable="@drawable/cursor_background"
+                android:textStyle="bold"
+                android:paddingStart="40dp"
+                android:paddingLeft="40dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerTwoLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_below="@id/playerOneLayout"
+            android:hint="Player Two"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:boxStrokeColor="#008080"
+            app:hintTextColor="#008080"
+            app:startIconDrawable="@drawable/ic_player_two"
+            app:startIconTint="@android:color/holo_green_dark">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPlayerTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textCursorDrawable="@drawable/cursor_background"
+                android:textStyle="bold"
+                android:paddingStart="40dp"
+                android:paddingLeft="40dp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLetsPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/playerTwoLayout"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_background"
+            android:elevation="10dp"
+            android:text="Let's Play"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#008080" />
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
