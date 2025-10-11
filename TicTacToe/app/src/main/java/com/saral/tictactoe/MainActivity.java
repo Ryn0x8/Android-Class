@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        binding = ActivityMainBinding.inflate(getLayoutInflater())
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.buttonGetSTarted.setOnClickListener( v -> {
+        binding.buttonGetStarted.setOnClickListener( v -> {
             startActivity(new Intent(MainActivity.this, PlayersActivity.class));
             finish();
         });

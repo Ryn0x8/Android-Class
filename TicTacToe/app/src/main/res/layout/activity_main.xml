@@ -11,12 +11,12 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-
+    <!-- Lottie Animation Section -->
     <RelativeLayout
         android:id="@+id/LottieView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/GetSTarted">
+        android:layout_above="@id/GetStarted">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/LottieAnimation"
@@ -28,43 +28,44 @@
             app:lottie_rawRes="@raw/tictactoe" />
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/LottieAnimation"
             android:layout_centerHorizontal="true"
-            android:layout_margin="20dp"
+            android:layout_marginTop="54dp"
             android:fontFamily="sans-serif"
             android:text="Tic Tac Toe"
+            android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <!-- Button Section -->
     <RelativeLayout
-        android:id="@+id/GetSTarted"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/GetStarted"
+        android:layout_width="386dp"
+        android:layout_height="198dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true">
+        android:paddingBottom="40dp">
 
-        <Button
-            android:id="@+id/buttonGetSTarted"
-            android:layout_width="279dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGetStarted"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="90dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/button_background"
-            android:backgroundTint="#FFFFFF"
-            android:backgroundTintMode="add"
-
             android:text="Get Started"
-            android:textColor="#009688"
+            android:textColor="#00BCD4"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/white"
+            app:cornerRadius="60dp" />
+
+
 
     </RelativeLayout>
-
 
 </RelativeLayout>
